@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-$ git clone https://github.com/ecordell/splatolm.git && cd splatolm && go install
+$ git clone https://github.com/ecordell/splatolm.git && cd splatolm && go build && go install
 ```
 
 ## Usage
@@ -13,8 +13,8 @@ $ git clone https://github.com/ecordell/splatolm.git && cd splatolm && go instal
 ```sh
 $ kubectl -n openshift-storage get csv ocs-operator.v4.5.0 -o yaml > ocs-csv.yaml
 $ splatolm ocs-csv.yaml > rbac.yaml
-$ kubectl apply -f rbac.yaml
+$ kubectl -n openshift-storage apply -f rbac.yaml
 
 # or
-$ splatolm ocs-csv.yaml | kubectl apply -f
+$ splatolm ocs-csv.yaml | kubectl -n openshift-storage apply -f
 ```
